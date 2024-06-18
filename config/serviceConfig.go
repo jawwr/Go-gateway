@@ -21,7 +21,15 @@ func NewServiceConfig(config map[string]ServiceConfig) *ServicesConfig {
 		if err != nil {
 			panic(err)
 		}
-		if conn, err := net.Dial("tcp", service.Host); err != nil {
+		var port = service.Port()
+		if port == "" {
+			if strings.HasPrefix(serviceConfig.Url, "https") {
+				port = "443"
+			} else if strings.HasPrefix(serviceConfig.Url, "http") {
+				port = "80"
+			}
+		}
+		if conn, err := net.Dial("tcp", service.Host+":"+port); err != nil {
 			log.Printf("Service [ %s ] not available", serviceName)
 			continue
 		} else {

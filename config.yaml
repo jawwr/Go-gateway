@@ -17,3 +17,6 @@ services:
   transport-service:
     prefix: auth
     url: http://localhost:8005
+  test-service:
+    prefix: test
+    url: https://www.google.com
