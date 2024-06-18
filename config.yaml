@@ -1,0 +1,19 @@
+services:
+  auth-service:
+    prefix: auth
+    url: http://localhost:8000
+  route-service:
+    prefix: auth
+    url: http://localhost:8001
+  hotel-service:
+    prefix: auth
+    url: http://localhost:8002
+  event-service:
+    prefix: event-service
+    url: http://localhost:8080
+  booking-service:
+    prefix: auth
+    url: http://localhost:8004
+  transport-service:
+    prefix: auth
+    url: http://localhost:8005
